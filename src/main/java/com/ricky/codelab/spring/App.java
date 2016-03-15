@@ -1,6 +1,5 @@
-package com.ricky.spring.demo;
+package com.ricky.codelab.spring;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -11,7 +10,7 @@ public class App {
 	
 	public static void main(String[] args) {
 		
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
 		
 		//2. 从 IOC 容器中获取 bean 的实例
 		UserDAO userDAO = (UserDAO) ctx.getBean("userDAO");
@@ -26,5 +25,7 @@ public class App {
 		
 		Action action = (Action) ctx.getBean("action");
 		System.out.println(action);
+		
+		ctx.close();
 	}
 }

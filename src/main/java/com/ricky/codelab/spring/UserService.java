@@ -1,4 +1,4 @@
-package com.ricky.spring.demo;
+package com.ricky.codelab.spring;
 
 public class UserService {
 	private UserDAO userDAO;

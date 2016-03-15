@@ -1,4 +1,4 @@
-package com.ricky.spring.demo;
+package com.ricky.codelab.spring;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
