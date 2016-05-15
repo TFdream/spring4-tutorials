@@ -1,4 +1,4 @@
-package com.ricky.codelab.spring;
+package com.ricky.codelab.spring.ioc;
 
 public class UserDAO {
 	private String user_name;

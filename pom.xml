@@ -4,14 +4,15 @@
 
 	<groupId>com.ricky.codelab</groupId>
 	<artifactId>spring</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>spring 4.x Samples</name>
+	<name>Spring 4.2 Samples</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<org.springframework.version>4.2.4.RELEASE</org.springframework.version>
+		<aspectj.version>1.8.8</aspectj.version>
 		<java.version>1.8</java.version>
 		<maven.compiler.version>3.1</maven.compiler.version>
 		<junit.version>4.12</junit.version>
@@ -29,10 +30,24 @@
 			<artifactId>spring-core</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+
+		<!-- AOP dependency -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
+			<artifactId>spring-aop</artifactId>
 			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
