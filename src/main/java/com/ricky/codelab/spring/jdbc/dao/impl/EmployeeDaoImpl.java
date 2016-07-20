@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.Resource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * ${DESCRIPTION}
@@ -36,6 +37,25 @@ public class EmployeeDaoImpl implements EmployeeDao {
         String sql = "SELECT * FROM tb_employee WHERE ID = ?";
 
         return jdbcTemplate.queryForObject(sql, new Object[]{ id }, new RowMapper<Employee>() {
+            public Employee mapRow(ResultSet rs, int rowNum) throws SQLException {
+                if(rs!=null){
+                    Employee employee = new Employee();
+                    employee.setId(rs.getInt("ID"));
+                    employee.setName(rs.getString("NAME"));
+                    employee.setAge(rs.getInt("AGE"));
+                    return employee;
+                }
+                return null;
+            }
+        });
+    }
+
+    @Override
+    public List<Employee> queryAllEmployees() {
+
+        String sql = "SELECT * FROM tb_employee";
+
+        return jdbcTemplate.query(sql, new RowMapper<Employee>() {
             public Employee mapRow(ResultSet rs, int rowNum) throws SQLException {
                 if(rs!=null){
                     Employee employee = new Employee();

@@ -4,6 +4,8 @@ import com.ricky.codelab.spring.domain.Employee;
 import com.ricky.codelab.spring.jdbc.dao.EmployeeDao;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 /**
  * ${DESCRIPTION}
  *
@@ -22,6 +24,8 @@ public class EmployeeDaoTest {
         Employee employee = employeeDao.findById(1);
         System.out.println("find:"+employee);
 
+        List<Employee> employeeList = employeeDao.queryAllEmployees();
+        System.out.println(employeeList.size());
         ctx.close();
     }
 }
