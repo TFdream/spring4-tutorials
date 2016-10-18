@@ -49,38 +49,45 @@
 		<property name="filters" value="mergeStat" />
 
 	</bean>
-	<!-- 配置来源数据 -->
-	<bean id="qdDataSource" parent="parentDataSource">
+
+	<!-- 配置数据源-->
+	<bean id="masterDataSource" parent="parentDataSource">
 		<property name="url" value="#{jdbc['test1.jdbc.url']}" />
 		<property name="username" value="#{jdbc['test1.jdbc.username']}" />
 		<property name="password" value="#{jdbc['test1.jdbc.password']}" />
 		<property name="driverClassName" value="#{jdbc['test1.jdbc.driver']}" />
-		<!-- 连接池最大使用连接数量 -->
-		<property name="maxActive" value="50" />
+		<property name="maxActive" value="15" />
 	</bean>
 
-	<bean id="whDataSource" parent="parentDataSource">
+	<bean id="slave1DataSource" parent="parentDataSource">
 		<property name="url" value="#{jdbc['test2.jdbc.url']}" />
 		<property name="username" value="#{jdbc['test2.jdbc.username']}" />
 		<property name="password" value="#{jdbc['test2.jdbc.password']}" />
 		<property name="driverClassName" value="#{jdbc['test2.jdbc.driver']}" />
 	</bean>
 
-
-	<bean id="test1JdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="qdDataSource"/>
+	<bean id="slave2DataSource" parent="parentDataSource">
+		<property name="url" value="#{jdbc['test2.jdbc.url']}" />
+		<property name="username" value="#{jdbc['test2.jdbc.username']}" />
+		<property name="password" value="#{jdbc['test2.jdbc.password']}" />
+		<property name="driverClassName" value="#{jdbc['test2.jdbc.driver']}" />
 	</bean>
 
-	<bean id="test2JdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="whDataSource"/>
+	<!--动态数据源-->
+	<bean id="dataSource" class="com.ricky.codelab.spring.ds.DynamicRoutingDataSource">
+		<property name="targetDataSources">
+			<map key-type="com.ricky.codelab.spring.ds.RouteStrategy">
+				<entry key="slave1" value-ref="slave1DataSource"/>
+				<entry key="slave2" value-ref="slave2DataSource"/>
+			</map>
+		</property>
+		<!-- 默认目标数据源为主库数据源 -->
+		<property name="defaultTargetDataSource" ref="masterDataSource"/>
 	</bean>
 
-	<!-- 配置事务管理器 -->
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="whDataSource" />
+	<!--Spring JdbcTemplate-->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
-
-	<!-- 注解方式配置事物 -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>

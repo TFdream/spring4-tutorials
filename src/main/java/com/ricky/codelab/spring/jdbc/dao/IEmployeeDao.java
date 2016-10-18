@@ -10,7 +10,7 @@ import java.util.List;
  * @author Ricky Fung
  * @create 2016-07-19 17:43
  */
-public interface EmployeeDao {
+public interface IEmployeeDao {
 
     public int insert(Employee employee);
     public Employee findById(long id);

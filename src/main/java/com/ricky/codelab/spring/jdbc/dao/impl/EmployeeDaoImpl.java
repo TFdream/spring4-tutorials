@@ -1,7 +1,7 @@
 package com.ricky.codelab.spring.jdbc.dao.impl;
 
 import com.ricky.codelab.spring.domain.Employee;
-import com.ricky.codelab.spring.jdbc.dao.EmployeeDao;
+import com.ricky.codelab.spring.jdbc.dao.IEmployeeDao;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -18,7 +18,7 @@ import java.util.List;
  * @create 2016-07-19 17:44
  */
 @Repository("employeeDao")
-public class EmployeeDaoImpl implements EmployeeDao {
+public class EmployeeDaoImpl implements IEmployeeDao {
 
     @Resource(name = "test1JdbcTemplate")
     private JdbcTemplate jdbcTemplate;

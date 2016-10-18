@@ -16,7 +16,8 @@
     <util:properties id="jdbc" location="classpath:jdbc.properties"/>
 
     <import resource="spring-aop.xml"/>
-    <import resource="spring-dao.xml"/>
+    <!--<import resource="spring-dao.xml"/>-->
+    <import resource="spring-ds.xml"/>
 
     <bean id="threadPool" class="java.util.concurrent.ThreadPoolExecutor">
         <constructor-arg index="0" value="10"/>
