@@ -52,31 +52,31 @@
 
 	<!-- 配置数据源-->
 	<bean id="masterDataSource" parent="parentDataSource">
-		<property name="url" value="#{jdbc['test1.jdbc.url']}" />
-		<property name="username" value="#{jdbc['test1.jdbc.username']}" />
-		<property name="password" value="#{jdbc['test1.jdbc.password']}" />
-		<property name="driverClassName" value="#{jdbc['test1.jdbc.driver']}" />
+		<property name="url" value="#{jdbc['master.jdbc.url']}" />
+		<property name="username" value="#{jdbc['master.jdbc.username']}" />
+		<property name="password" value="#{jdbc['master.jdbc.password']}" />
+		<property name="driverClassName" value="#{jdbc['master.jdbc.driver']}" />
 		<property name="maxActive" value="15" />
 	</bean>
 
 	<bean id="slave1DataSource" parent="parentDataSource">
-		<property name="url" value="#{jdbc['test2.jdbc.url']}" />
-		<property name="username" value="#{jdbc['test2.jdbc.username']}" />
-		<property name="password" value="#{jdbc['test2.jdbc.password']}" />
-		<property name="driverClassName" value="#{jdbc['test2.jdbc.driver']}" />
+		<property name="url" value="#{jdbc['slave1.jdbc.url']}" />
+		<property name="username" value="#{jdbc['slave1.jdbc.username']}" />
+		<property name="password" value="#{jdbc['slave1.jdbc.password']}" />
+		<property name="driverClassName" value="#{jdbc['slave1.jdbc.driver']}" />
 	</bean>
 
 	<bean id="slave2DataSource" parent="parentDataSource">
-		<property name="url" value="#{jdbc['test2.jdbc.url']}" />
-		<property name="username" value="#{jdbc['test2.jdbc.username']}" />
-		<property name="password" value="#{jdbc['test2.jdbc.password']}" />
-		<property name="driverClassName" value="#{jdbc['test2.jdbc.driver']}" />
+		<property name="url" value="#{jdbc['slave2.jdbc.url']}" />
+		<property name="username" value="#{jdbc['slave2.jdbc.username']}" />
+		<property name="password" value="#{jdbc['slave2.jdbc.password']}" />
+		<property name="driverClassName" value="#{jdbc['slave2.jdbc.driver']}" />
 	</bean>
 
 	<!--动态数据源-->
 	<bean id="dataSource" class="com.ricky.codelab.spring.ds.DynamicRoutingDataSource">
 		<property name="targetDataSources">
-			<map key-type="com.ricky.codelab.spring.ds.RouteStrategy">
+			<map key-type="com.ricky.codelab.spring.ds.RoutingStrategy">
 				<entry key="slave1" value-ref="slave1DataSource"/>
 				<entry key="slave2" value-ref="slave2DataSource"/>
 			</map>

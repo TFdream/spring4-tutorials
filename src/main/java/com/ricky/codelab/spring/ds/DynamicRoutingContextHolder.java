@@ -8,17 +8,17 @@ import org.springframework.util.Assert;
  * @author Ricky Fung
  * @create 2016-10-18 22:44
  */
-public class DataSourceContextHolder {
-    private static final ThreadLocal<RouteStrategy> contextHolder =
-            new ThreadLocal<RouteStrategy>();
+public class DynamicRoutingContextHolder {
+    private static final ThreadLocal<RoutingStrategy> contextHolder =
+            new ThreadLocal<>();
 
-    public static void setRouteStrategy(RouteStrategy customerType) {
+    public static void setRouteStrategy(RoutingStrategy customerType) {
         Assert.notNull(customerType, "customerType cannot be null");
         contextHolder.set(customerType);
     }
 
-    public static RouteStrategy getRouteStrategy() {
-        return (RouteStrategy) contextHolder.get();
+    public static RoutingStrategy getRouteStrategy() {
+        return (RoutingStrategy) contextHolder.get();
     }
 
     public static void clearRouteStrategy() {

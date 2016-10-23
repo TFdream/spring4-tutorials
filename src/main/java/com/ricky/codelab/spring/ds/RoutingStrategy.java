@@ -6,13 +6,13 @@ package com.ricky.codelab.spring.ds;
  * @author Ricky Fung
  * @create 2016-10-18 22:47
  */
-public class RouteStrategy {
+public enum RoutingStrategy {
+    Master(true, "master"), Slave(false, "slave");
+
     private boolean write;
     private String key;
 
-    public RouteStrategy(){}
-
-    public RouteStrategy(boolean write, String key) {
+    RoutingStrategy(boolean write, String key) {
         this.write = write;
         this.key = key;
     }
@@ -21,15 +21,8 @@ public class RouteStrategy {
         return write;
     }
 
-    public void setWrite(boolean write) {
-        this.write = write;
-    }
-
     public String getKey() {
         return key;
     }
 
-    public void setKey(String key) {
-        this.key = key;
-    }
 }

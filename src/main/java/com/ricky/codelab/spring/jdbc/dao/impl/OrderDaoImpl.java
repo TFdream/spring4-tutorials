@@ -1,12 +1,10 @@
 package com.ricky.codelab.spring.jdbc.dao.impl;
 
 import com.ricky.codelab.spring.domain.Order;
-import com.ricky.codelab.spring.ds.DataSourceContextHolder;
-import com.ricky.codelab.spring.ds.RouteStrategy;
 import com.ricky.codelab.spring.jdbc.dao.IOrderDao;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-
+import org.springframework.stereotype.Repository;
 import javax.annotation.Resource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,6 +16,7 @@ import java.util.List;
  * @author Ricky Fung
  * @create 2016-10-18 23:06
  */
+@Repository("orderDao")
 public class OrderDaoImpl implements IOrderDao {
 
     @Resource(name = "jdbcTemplate")
@@ -25,20 +24,25 @@ public class OrderDaoImpl implements IOrderDao {
 
     @Override
     public long insert(Order order) {
-
-        return 0;
+        String sql = "INSERT INTO tb_order(customer_name,total_price,amount,address) VALUES (?,?,?,?)";
+        return jdbcTemplate.update(sql, order.getCustomerName(),
+                order.getTotalPrice(), order.getAmount(), order.getAddress());
     }
 
     @Override
-    public Order queryById(long id) {
-        DataSourceContextHolder.setRouteStrategy(new RouteStrategy(true, "slave1"));
-        List<Order> list = jdbcTemplate.query("", new Object[]{}, new RowMapper<Order>() {
+    public List<Order> queryOrders(){
+
+        return jdbcTemplate.query("SELECT * FROM tb_order", new RowMapper<Order>() {
             @Override
             public Order mapRow(ResultSet rs, int i) throws SQLException {
-                return null;
+                Order order = new Order();
+                order.setId(rs.getLong("id"));
+                order.setCustomerName(rs.getString("customer_name"));
+                order.setTotalPrice(rs.getDouble("total_price"));
+                order.setAmount(rs.getInt("amount"));
+                order.setAddress(rs.getString("address"));
+                return order;
             }
         });
-
-        return list!=null && list.size()>0 ? list.get(0):null;
     }
 }

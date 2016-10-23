@@ -2,6 +2,8 @@ package com.ricky.codelab.spring.jdbc.dao;
 
 import com.ricky.codelab.spring.domain.Order;
 
+import java.util.List;
+
 /**
  * ${DESCRIPTION}
  *
@@ -11,5 +13,5 @@ import com.ricky.codelab.spring.domain.Order;
 public interface IOrderDao {
 
     long insert(Order order);
-    Order queryById(long id);
+    List<Order> queryOrders();
 }
