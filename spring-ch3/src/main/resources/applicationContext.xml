@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:rpc="http://www.bytebeats.com/schema/rpc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.bytebeats.com/schema/rpc http://www.bytebeats.com/schema/rpc/rpc.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.bytebeats.spring4.extension.xml"/>
+
+    <bean id="rpc" class="com.bytebeats.spring4.extension.domain.RpcServiceBean">
+        <property name="id" value="1"></property>
+        <property name="interfaceName" value="com.bytebeats.spring4.extension.samples.App"></property>
+    </bean>
+
+    <rpc:service id="rpcService" ref="helloService" interface="com.bytebeats.spring4.extension.samples.IHelloService"></rpc:service>
+
+</beans>
