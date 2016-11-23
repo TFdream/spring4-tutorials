@@ -1,6 +1,6 @@
 package com.bytebeats.spring4.extension.xml;
 
-import com.bytebeats.spring4.extension.domain.RpcServiceBean;
+import com.bytebeats.spring4.extension.domain.RpcReferenceBean;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.AbstractBeanDefinitionParser;
@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
  * @author Ricky Fung
  * @create 2016-11-23 11:50
  */
-public class RpcServiceBeanDefinitionParser extends AbstractBeanDefinitionParser {
+public class RpcReferenceBeanDefinitionParser extends AbstractBeanDefinitionParser {
 
     @Override
     protected AbstractBeanDefinition parseInternal(Element element, ParserContext parserContext) {
@@ -24,18 +24,20 @@ public class RpcServiceBeanDefinitionParser extends AbstractBeanDefinitionParser
 
     private AbstractBeanDefinition parseComponet(Element element, ParserContext parserContext) {
 
-        BeanDefinitionBuilder builder = BeanDefinitionBuilder.rootBeanDefinition(RpcServiceBean.class);
+        BeanDefinitionBuilder builder = BeanDefinitionBuilder.rootBeanDefinition(RpcReferenceBean.class);
 
         String id = element.getAttribute("id");
         if (StringUtils.hasText(id)) {
             builder.addPropertyValue("id", id);
         }
 
-        String ref = element.getAttribute("ref");
-        builder.addPropertyValue("ref", ref);
-
         String interfaceName = element.getAttribute("interface");
         builder.addPropertyValue("interfaceName", interfaceName);
+
+        String version = element.getAttribute("version");
+        if (StringUtils.hasText(version)) {
+            builder.addPropertyValue("version", version);
+        }
 
         String group = element.getAttribute("group");
         if (StringUtils.hasText(group)) {
@@ -45,11 +47,6 @@ public class RpcServiceBeanDefinitionParser extends AbstractBeanDefinitionParser
         String registry = element.getAttribute("registry");
         if (StringUtils.hasText(registry)) {
             builder.addPropertyValue("registry", registry);
-        }
-
-        String version = element.getAttribute("version");
-        if (StringUtils.hasText(version)) {
-            builder.addPropertyValue("version", version);
         }
 
         String timeout = element.getAttribute("timeout");
@@ -67,6 +64,10 @@ public class RpcServiceBeanDefinitionParser extends AbstractBeanDefinitionParser
             builder.addPropertyValue("async", Boolean.valueOf(async));
         }
 
+        String check = element.getAttribute("check");
+        if (StringUtils.hasText(check)) {
+            builder.addPropertyValue("check", Boolean.valueOf(check));
+        }
         return builder.getBeanDefinition();
     }
 

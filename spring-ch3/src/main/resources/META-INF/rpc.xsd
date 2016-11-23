@@ -25,6 +25,8 @@
                     <xsd:attribute name="id" type="xsd:ID" />
                     <xsd:attribute name="ref" type="xsd:string" use="required"/>
                     <xsd:attribute name="interface" type="xsd:string" use="required"/>
+                    <xsd:attribute name="group" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="registry" type="xsd:string" use="optional"/>
                     <xsd:attribute name="version" type="xsd:string" use="optional"/>
                     <xsd:attribute name="timeout" type="xsd:string" use="optional"/>
                     <xsd:attribute name="retries" type="xsd:string" use="optional"/>
@@ -33,4 +35,60 @@
             </xsd:complexContent>
         </xsd:complexType>
     </xsd:element>
+
+    <xsd:element name="ref">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="abstractConfig">
+                    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+                        <xsd:element ref="beans:property" minOccurs="0" maxOccurs="unbounded" />
+                    </xsd:choice>
+                    <xsd:attribute name="id" type="xsd:ID" />
+                    <xsd:attribute name="interface" type="xsd:string" use="required"/>
+                    <xsd:attribute name="group" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="registry" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="version" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="timeout" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="retries" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="async" type="xsd:boolean" use="optional"/>
+                    <xsd:attribute name="check" type="xsd:boolean" use="optional"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="registry">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="abstractConfig">
+                    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+                        <xsd:element ref="beans:property" minOccurs="0" maxOccurs="unbounded" />
+                    </xsd:choice>
+                    <xsd:attribute name="id" type="xsd:ID" />
+                    <xsd:attribute name="protocol" type="xsd:string" use="required"/>
+                    <xsd:attribute name="address" type="xsd:string" use="required"/>
+                    <xsd:attribute name="username" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="password" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="check" type="xsd:boolean" use="optional"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="protocol">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="abstractConfig">
+                    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+                        <xsd:element ref="beans:property" minOccurs="0" maxOccurs="unbounded" />
+                    </xsd:choice>
+                    <xsd:attribute name="id" type="xsd:ID" />
+                    <xsd:attribute name="name" type="xsd:string" use="required"/>
+                    <xsd:attribute name="port" type="xsd:string" use="required"/>
+                    <xsd:attribute name="host" type="xsd:string" use="optional"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
 </xsd:schema>

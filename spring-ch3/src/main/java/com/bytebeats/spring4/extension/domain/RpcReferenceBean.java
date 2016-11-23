@@ -6,9 +6,8 @@ package com.bytebeats.spring4.extension.domain;
  * @author Ricky Fung
  * @create 2016-11-23 11:54
  */
-public class RpcServiceBean {
+public class RpcReferenceBean {
     private String id;
-    private String ref;
     private String interfaceName;
     private String group;
     private String registry;
@@ -16,6 +15,7 @@ public class RpcServiceBean {
     private int timeout;
     private int retries;
     private boolean async;
+    private boolean check;
 
     public String getId() {
         return id;
@@ -25,20 +25,28 @@ public class RpcServiceBean {
         this.id = id;
     }
 
-    public String getRef() {
-        return ref;
-    }
-
-    public void setRef(String ref) {
-        this.ref = ref;
-    }
-
     public String getInterfaceName() {
         return interfaceName;
     }
 
     public void setInterfaceName(String interfaceName) {
         this.interfaceName = interfaceName;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public String getRegistry() {
+        return registry;
+    }
+
+    public void setRegistry(String registry) {
+        this.registry = registry;
     }
 
     public String getVersion() {
@@ -71,5 +79,13 @@ public class RpcServiceBean {
 
     public void setAsync(boolean async) {
         this.async = async;
+    }
+
+    public boolean isCheck() {
+        return check;
+    }
+
+    public void setCheck(boolean check) {
+        this.check = check;
     }
 }
