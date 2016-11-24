@@ -41,6 +41,22 @@ public class RpcServiceBean {
         this.interfaceName = interfaceName;
     }
 
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public String getRegistry() {
+        return registry;
+    }
+
+    public void setRegistry(String registry) {
+        this.registry = registry;
+    }
+
     public String getVersion() {
         return version;
     }
