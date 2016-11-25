@@ -1,9 +1,8 @@
 package com.bytebeats.spring4.extension.xml;
 
 import com.bytebeats.spring4.extension.domain.RpcProtocolBean;
-import org.springframework.beans.factory.support.AbstractBeanDefinition;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
-import org.springframework.beans.factory.xml.AbstractBeanDefinitionParser;
 import org.springframework.beans.factory.xml.ParserContext;
 import org.springframework.util.StringUtils;
 import org.w3c.dom.Element;
@@ -14,15 +13,10 @@ import org.w3c.dom.Element;
  * @author Ricky Fung
  * @create 2016-11-23 11:50
  */
-public class RpcProtocolBeanDefinitionParser extends AbstractBeanDefinitionParser {
+public class RpcProtocolBeanDefinitionParser extends RegistryBeanDefinitionParser {
 
     @Override
-    protected AbstractBeanDefinition parseInternal(Element element, ParserContext parserContext) {
-
-        return parseComponet(element, parserContext);
-    }
-
-    private AbstractBeanDefinition parseComponet(Element element, ParserContext parserContext) {
+    protected BeanDefinition parseInternal(Element element, ParserContext parserContext) {
 
         BeanDefinitionBuilder builder = BeanDefinitionBuilder.rootBeanDefinition(RpcProtocolBean.class);
 
@@ -43,7 +37,8 @@ public class RpcProtocolBeanDefinitionParser extends AbstractBeanDefinitionParse
         if (StringUtils.hasText(host)) {
             builder.addPropertyValue("host", host);
         }
-        return builder.getBeanDefinition();
+
+        return this.registerBeanDefinition(parserContext, builder.getBeanDefinition(), id, null);
     }
 
 }

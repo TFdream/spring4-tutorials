@@ -20,7 +20,7 @@ public class App {
         IHelloService helloService = (IHelloService) context.getBean("helloService");
         System.out.println(helloService.sayHello("ricky"));
 
-        RpcServiceBean rpcServiceBean = (RpcServiceBean) context.getBean("rpcService");
+        RpcServiceBean rpcServiceBean = (RpcServiceBean) context.getBean("helloServiceImpl");
         System.out.println("rpcServiceBean:"+rpcServiceBean.getInterfaceName());
 
         RpcReferenceBean accountService = (RpcReferenceBean) context.getBean("accountService");
@@ -32,6 +32,5 @@ public class App {
         RpcProtocolBean rpcProtocolBean = (RpcProtocolBean) context.getBean("hessian");
         System.out.println("rpcProtocolBean:"+rpcProtocolBean.getPort());
 
-        context.close();
     }
 }

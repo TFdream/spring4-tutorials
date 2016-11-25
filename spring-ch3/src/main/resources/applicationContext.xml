@@ -13,7 +13,7 @@
     <rpc:registry id="zk" protocol="zookeeper" address="127.0.0.1" />
     <rpc:protocol id="hessian" name="hessian" port="9001"/>
 
-    <rpc:service id="rpcService" ref="helloService" interface="com.bytebeats.spring4.extension.service.IHelloService" timeout="5000" retries="1"></rpc:service>
+    <rpc:service ref="helloService" interface="com.bytebeats.spring4.extension.service.IHelloService" timeout="5000" retries="1"></rpc:service>
 
     <rpc:ref id="accountService" interface="com.bytebeats.spring4.extension.service.IAccountService" retries="0" check="false" />
 
