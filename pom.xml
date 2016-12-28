@@ -14,6 +14,7 @@
 		<module>spring-ch1</module>
 		<module>spring-ch2</module>
 		<module>spring-ch3</module>
+		<module>spring-lifecycle</module>
 	</modules>
 
 	<properties>
@@ -29,12 +30,17 @@
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
-				<artifactId>spring-core</artifactId>
+				<artifactId>spring-beans</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
 			<dependency>
