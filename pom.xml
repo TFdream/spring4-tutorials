@@ -11,11 +11,11 @@
 	<url>http://maven.apache.org</url>
 
 	<modules>
-		<module>spring-ch1</module>
-		<module>spring-ch2</module>
-		<module>spring-ch3</module>
-		<module>spring-lifecycle</module>
-		<module>spring-ch4</module>
+		<module>spring-ch1-ioc</module>
+		<module>spring-ch2-aop</module>
+		<module>spring-ch3-extensible</module>
+		<module>spring-ch4-lifecycle</module>
+		<module>spring-ch5-rw</module>
 	</modules>
 
 	<properties>
@@ -95,6 +95,13 @@
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
+				<version>1.7.21</version>
+			</dependency>
+
+			<!--exclude Spring Framework commons-logging dependency-->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
 				<version>1.7.21</version>
 			</dependency>
 
