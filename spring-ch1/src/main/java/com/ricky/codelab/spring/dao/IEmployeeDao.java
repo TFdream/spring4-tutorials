@@ -1,4 +1,4 @@
-package com.ricky.codelab.spring.jdbc.dao;
+package com.ricky.codelab.spring.dao;
 
 import com.ricky.codelab.spring.domain.Employee;
 

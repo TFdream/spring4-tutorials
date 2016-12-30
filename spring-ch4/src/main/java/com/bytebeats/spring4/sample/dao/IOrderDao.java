@@ -1,17 +1,17 @@
-package com.ricky.codelab.spring.jdbc.dao;
+package com.bytebeats.spring4.sample.dao;
 
-import com.ricky.codelab.spring.domain.Order;
-
+import com.bytebeats.spring4.sample.domain.Order;
 import java.util.List;
 
 /**
  * ${DESCRIPTION}
  *
  * @author Ricky Fung
- * @create 2016-10-18 23:05
+ * @create 2016-12-30 11:15
  */
 public interface IOrderDao {
 
     long insert(Order order);
+
     List<Order> queryOrders();
 }

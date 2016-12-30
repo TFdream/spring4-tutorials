@@ -1,4 +1,4 @@
-package com.ricky.codelab.spring.ds;
+package com.bytebeats.spring4.sample.ds;
 
 import org.springframework.util.Assert;
 
@@ -6,7 +6,7 @@ import org.springframework.util.Assert;
  * ${DESCRIPTION}
  *
  * @author Ricky Fung
- * @create 2016-10-18 22:44
+ * @create 2016-12-30 11:14
  */
 public class DynamicRoutingContextHolder {
     private static final ThreadLocal<RoutingStrategy> contextHolder =

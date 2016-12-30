@@ -1,6 +1,6 @@
 package com.bytebeats.spring4.aop;
 
-import com.ricky.codelab.spring.aop.proxy.ArithmeticCalculatorProxy;
+import com.bytebeats.spring4.aop.proxy.ArithmeticCalculatorProxy;
 
 public class JDKProxyMain {
 

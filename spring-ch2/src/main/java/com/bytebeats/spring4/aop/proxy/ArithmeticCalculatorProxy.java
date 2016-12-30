@@ -1,6 +1,6 @@
 package com.bytebeats.spring4.aop.proxy;
 
-import com.ricky.codelab.spring.aop.ArithmeticCalculator;
+import com.bytebeats.spring4.aop.ArithmeticCalculator;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

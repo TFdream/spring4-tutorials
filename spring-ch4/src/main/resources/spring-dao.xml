@@ -14,10 +14,6 @@
        http://www.springframework.org/schema/context/spring-context.xsd"
 	   default-lazy-init="false">
 
-	<context:annotation-config />
-	<context:component-scan base-package="com.ricky.codelab.spring" />
-
-
 	<bean id="parentDataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		   destroy-method="close"  abstract="true" init-method="init" >
 		<!-- 初始化连接大小 -->
@@ -59,26 +55,19 @@
 		<property name="maxActive" value="15" />
 	</bean>
 
-	<bean id="slave1DataSource" parent="parentDataSource">
+	<bean id="slaveDataSource" parent="parentDataSource">
 		<property name="url" value="#{jdbc['slave1.jdbc.url']}" />
 		<property name="username" value="#{jdbc['slave1.jdbc.username']}" />
 		<property name="password" value="#{jdbc['slave1.jdbc.password']}" />
 		<property name="driverClassName" value="#{jdbc['slave1.jdbc.driver']}" />
 	</bean>
 
-	<bean id="slave2DataSource" parent="parentDataSource">
-		<property name="url" value="#{jdbc['slave2.jdbc.url']}" />
-		<property name="username" value="#{jdbc['slave2.jdbc.username']}" />
-		<property name="password" value="#{jdbc['slave2.jdbc.password']}" />
-		<property name="driverClassName" value="#{jdbc['slave2.jdbc.driver']}" />
-	</bean>
-
 	<!--动态数据源-->
-	<bean id="dataSource" class="com.ricky.codelab.spring.ds.DynamicRoutingDataSource">
+	<bean id="dataSource" class="com.bytebeats.spring4.sample.ds.DynamicRoutingDataSource">
 		<property name="targetDataSources">
-			<map key-type="com.ricky.codelab.spring.ds.RoutingStrategy">
-				<entry key="slave1" value-ref="slave1DataSource"/>
-				<entry key="slave2" value-ref="slave2DataSource"/>
+			<map key-type="com.bytebeats.spring4.sample.ds.RoutingStrategy">
+				<entry key="WRITE" value-ref="masterDataSource"/>
+				<entry key="READ" value-ref="slaveDataSource"/>
 			</map>
 		</property>
 		<!-- 默认目标数据源为主库数据源 -->
@@ -88,6 +77,13 @@
 	<!--Spring JdbcTemplate-->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<!-- 注解方式配置事物 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="masterDataSource" />
 	</bean>
 
 </beans>

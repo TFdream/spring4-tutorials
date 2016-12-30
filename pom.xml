@@ -7,7 +7,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Spring 4.3 Samples</name>
+	<name>spring4-samples</name>
 	<url>http://maven.apache.org</url>
 
 	<modules>
@@ -15,6 +15,7 @@
 		<module>spring-ch2</module>
 		<module>spring-ch3</module>
 		<module>spring-lifecycle</module>
+		<module>spring-ch4</module>
 	</modules>
 
 	<properties>
@@ -88,6 +89,26 @@
 				<artifactId>druid</artifactId>
 				<version>1.0.21</version>
 			</dependency>
+
+
+			<!--log-->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.7.21</version>
+			</dependency>
+
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+				<version>1.1.7</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>1.1.7</version>
+			</dependency>
+
 
 			<dependency>
 				<groupId>junit</groupId>

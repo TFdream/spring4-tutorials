@@ -10,21 +10,12 @@
        default-lazy-init="false">
 
     <context:annotation-config/>
-    <context:component-scan base-package="com.ricky.codelab.spring"/>
+    <context:component-scan base-package="com.bytebeats.spring4.sample"/>
 
     <!-- 引入配置文件 -->
     <util:properties id="jdbc" location="classpath:jdbc.properties"/>
 
     <import resource="spring-dao.xml"/>
-
-    <bean id="threadPool" class="java.util.concurrent.ThreadPoolExecutor">
-        <constructor-arg index="0" value="10"/>
-        <constructor-arg index="1" value="20"/>
-        <constructor-arg index="2" value="1"/>
-        <constructor-arg index="3" value="MINUTES"/>
-        <constructor-arg index="4">
-            <bean class="java.util.concurrent.LinkedBlockingQueue"/>
-        </constructor-arg>
-    </bean>
+    <import resource="spring-aop.xml"/>
 
 </beans>

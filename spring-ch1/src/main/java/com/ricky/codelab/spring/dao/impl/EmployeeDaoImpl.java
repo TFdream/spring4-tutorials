@@ -1,7 +1,7 @@
-package com.ricky.codelab.spring.jdbc.dao.impl;
+package com.ricky.codelab.spring.dao.impl;
 
+import com.ricky.codelab.spring.dao.IEmployeeDao;
 import com.ricky.codelab.spring.domain.Employee;
-import com.ricky.codelab.spring.jdbc.dao.IEmployeeDao;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;

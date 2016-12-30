@@ -1,7 +1,9 @@
-package com.ricky.codelab.spring.jdbc.dao.impl;
+package com.bytebeats.spring4.sample.dao.impl;
 
-import com.ricky.codelab.spring.domain.Order;
-import com.ricky.codelab.spring.jdbc.dao.IOrderDao;
+import com.bytebeats.spring4.sample.annotation.RoutingDataSource;
+import com.bytebeats.spring4.sample.dao.IOrderDao;
+import com.bytebeats.spring4.sample.domain.Order;
+import com.bytebeats.spring4.sample.ds.RoutingStrategy;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -14,7 +16,7 @@ import java.util.List;
  * ${DESCRIPTION}
  *
  * @author Ricky Fung
- * @create 2016-10-18 23:06
+ * @create 2016-12-30 11:16
  */
 @Repository("orderDao")
 public class OrderDaoImpl implements IOrderDao {
@@ -22,6 +24,7 @@ public class OrderDaoImpl implements IOrderDao {
     @Resource(name = "jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
+    @RoutingDataSource(RoutingStrategy.WRITE)
     @Override
     public long insert(Order order) {
         String sql = "INSERT INTO tb_order(customer_name,total_price,amount,address) VALUES (?,?,?,?)";
@@ -29,6 +32,7 @@ public class OrderDaoImpl implements IOrderDao {
                 order.getTotalPrice(), order.getAmount(), order.getAddress());
     }
 
+    @RoutingDataSource(RoutingStrategy.READ)
     @Override
     public List<Order> queryOrders(){
 
