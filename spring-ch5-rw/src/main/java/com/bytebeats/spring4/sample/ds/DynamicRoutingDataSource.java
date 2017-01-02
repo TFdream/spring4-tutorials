@@ -3,7 +3,7 @@ package com.bytebeats.spring4.sample.ds;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
- * 动态数据源切换
+ * 动态数据源
  *
  * @author Ricky Fung
  * @create 2016-12-30 11:12
