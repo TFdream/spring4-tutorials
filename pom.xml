@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.bytebeats</groupId>
-	<artifactId>spring4-samples</artifactId>
+	<artifactId>spring4-in-action</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>spring4-samples</name>
+	<name>spring4-in-action</name>
 	<url>http://maven.apache.org</url>
 
 	<modules>

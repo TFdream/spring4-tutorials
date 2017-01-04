@@ -4,7 +4,7 @@
 
 	<parent>
 		<groupId>com.bytebeats</groupId>
-		<artifactId>spring4-samples</artifactId>
+		<artifactId>spring4-in-action</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
