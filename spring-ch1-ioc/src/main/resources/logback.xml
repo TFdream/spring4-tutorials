@@ -15,8 +15,8 @@
 
 	<appender name="Info" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>${LOG_HOME}/info/spring4-ioc-info.log</file>
-		<appender>true</appender>
-		<Encoding>UTF-8</Encoding>
+		<append>true</append>
+		<charset>UTF-8</charset>
 
 		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
 			<level>INFO</level>
@@ -38,7 +38,7 @@
 
 	<root level="INFO">
 		<appender-ref ref="STDOUT" />
-		<appender-ref ref="info_async" />
+		<appender-ref ref="Info" />
 	</root>
 
 </configuration>
