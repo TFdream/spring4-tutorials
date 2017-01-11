@@ -16,6 +16,7 @@
 		<module>spring-ch3-extensible</module>
 		<module>spring-ch4-lifecycle</module>
 		<module>spring-ch5-rw</module>
+		<module>spring-ch6-transaction</module>
 	</modules>
 
 	<properties>
