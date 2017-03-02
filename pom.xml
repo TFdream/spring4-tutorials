@@ -17,6 +17,7 @@
 		<module>spring-ch4-lifecycle</module>
 		<module>spring-ch5-rw</module>
 		<module>spring-ch6-transaction</module>
+		<module>spring-inner-research</module>
 	</modules>
 
 	<properties>
