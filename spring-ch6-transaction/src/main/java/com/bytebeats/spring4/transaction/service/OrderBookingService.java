@@ -2,6 +2,7 @@ package com.bytebeats.spring4.transaction.service;
 
 import com.bytebeats.spring4.transaction.domain.Order;
 import com.bytebeats.spring4.transaction.domain.User;
+import com.bytebeats.spring4.transaction.exception.BookFailureException;
 
 /**
  * 下单服务
@@ -11,5 +12,5 @@ import com.bytebeats.spring4.transaction.domain.User;
  */
 public interface OrderBookingService {
 
-    int book(User user, Order order);
+    boolean book(User user, Order order) throws BookFailureException;
 }
