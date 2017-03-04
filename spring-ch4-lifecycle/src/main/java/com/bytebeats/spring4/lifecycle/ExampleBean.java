@@ -15,6 +15,9 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 /**
  * ${DESCRIPTION}
  *
@@ -29,7 +32,7 @@ public class ExampleBean implements BeanFactoryAware, BeanNameAware, Application
     private ApplicationContext applicationContext;
 
     public ExampleBean() {
-        System.out.println("【构造器】调用Person的构造器实例化");
+        System.out.println("【构造器】调用ExampleBean的构造器实例化");
     }
 
     // 这是BeanFactoryAware接口方法
@@ -74,6 +77,16 @@ public class ExampleBean implements BeanFactoryAware, BeanNameAware, Application
     // 通过<bean>的destroy-method属性指定的初始化方法
     public void destroyMethod() {
         System.out.println("【destroy-method】调用<bean>的destroy-method属性指定的初始化方法");
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println("【@PostConstruct】注解方法init");
+    }
+
+    @PreDestroy
+    public void preDestroy(){
+        System.out.println("【@PreDestroy】注解方法preDestroy");
     }
 
 }
