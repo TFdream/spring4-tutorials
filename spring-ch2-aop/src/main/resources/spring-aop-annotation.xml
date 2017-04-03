@@ -14,7 +14,4 @@
 	<!-- 启用AspectJ自动代理 -->
 	<aop:aspectj-autoproxy />
 
-	<!-- 配置 bean -->
-	<bean id="userService" class="com.bytebeats.spring4.aop.xml.service.UserServiceImpl"></bean>
-
 </beans>
