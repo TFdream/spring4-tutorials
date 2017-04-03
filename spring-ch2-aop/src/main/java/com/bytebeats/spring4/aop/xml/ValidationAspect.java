@@ -5,7 +5,7 @@ import org.aspectj.lang.JoinPoint;
 import java.util.Arrays;
 import java.util.List;
 
-public class VlidationAspect {
+public class ValidationAspect {
 
 	/**
 	 * 前置通知：在方法执行前执行的代码

@@ -1,4 +1,4 @@
-package com.bytebeats.spring4.aop;
+package com.bytebeats.spring4.aop.dynamicproxy;
 
 public class ArithmeticCalculatorImpl implements ArithmeticCalculator {
 
