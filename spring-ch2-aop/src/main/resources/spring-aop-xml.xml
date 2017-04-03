@@ -19,8 +19,8 @@
 		class="com.bytebeats.spring4.aop.xml.service.UserServiceImpl"></bean>
 
 	<!-- 配置切面 -->
-	<bean id="loggingAspect"
-		class="com.bytebeats.spring4.aop.xml.LogAspect"></bean>
+	<bean id="logInterceptor"
+		class="com.bytebeats.spring4.aop.xml.LogInterceptor"></bean>
 
 	<bean id="vlidationAspect"
 		class="com.bytebeats.spring4.aop.xml.ValidationAspect"></bean>
@@ -31,14 +31,14 @@
 		<aop:pointcut expression="execution(* com.bytebeats.spring4.aop.xml.service.UserService.*(..))"
 			id="pointcut"/>
 		<!-- 配置切面及通知 -->
-		<aop:aspect ref="loggingAspect" order="2">
+		<aop:aspect ref="logInterceptor" order="1">
 			<aop:before method="beforeExecute" pointcut-ref="pointcut"/>
 			<aop:after method="afterExecute" pointcut-ref="pointcut"/>
 			<aop:after-throwing method="afterThrowing" pointcut-ref="pointcut" throwing="exception"/>
 			<aop:after-returning method="afterReturning" pointcut-ref="pointcut" returning="result"/>
 			<aop:around method="around" pointcut-ref="pointcut"/>
 		</aop:aspect>
-		<!--<aop:aspect ref="vlidationAspect" order="1">
+		<!--<aop:aspect ref="vlidationAspect" order="2">
 			<aop:before method="validateArgs" pointcut-ref="pointcut"/>
 		</aop:aspect>-->
 	</aop:config>

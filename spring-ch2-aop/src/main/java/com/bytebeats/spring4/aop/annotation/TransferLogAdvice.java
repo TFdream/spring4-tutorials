@@ -14,11 +14,20 @@ import java.util.List;
 @Component
 public class TransferLogAdvice {
 
+	@Pointcut("execution(* com.bytebeats.spring4.aop.annotation.service.BankServiceImpl.*(..))")
+	public void pointcut1() {
+	}
+
+	@Pointcut("execution(* com.bytebeats.spring4.aop.annotation.service.*ServiceImpl.*(..))")
+	public void myPointcut() {
+	}
+
 	/**
 	 * 前置通知：在方法执行前执行的代码
 	 * @param joinPoint
 	 */
-	@Before("execution(* com.bytebeats.spring4.aop.annotation.service.BankServiceImpl.*(..))")
+	@Before(value = "pointcut1() || myPointcut()")
+	//@Before("execution(* com.bytebeats.spring4.aop.annotation.service.BankServiceImpl.*(..))")
 	public void beforeExecute(JoinPoint joinPoint){
 		
 		String methodName = joinPoint.getSignature().getName();
@@ -31,7 +40,7 @@ public class TransferLogAdvice {
 	 * 后置通知：在方法执行后执行的代码(无论该方法是否发生异常),注意后置通知拿不到执行的结果
 	 * @param joinPoint
 	 */
-	@After("execution(* com.bytebeats.spring4.aop.annotation.service.BankServiceImpl.*(..))")
+	@After(value = "pointcut1()")
 	public void afterExecute(JoinPoint joinPoint){
 		
 		String methodName = joinPoint.getSignature().getName();
@@ -42,7 +51,7 @@ public class TransferLogAdvice {
 	 * 后置返回通知：在方法正常执行后执行的代码,可以获取到方法的返回值
 	 * @param joinPoint
 	 */
-	@AfterReturning(value="execution(* com.bytebeats.spring4.aop.annotation.service.BankServiceImpl.*(..))",
+	@AfterReturning(value = "pointcut1()",
 			returning="result")
 	public void afterReturning(JoinPoint joinPoint, Object result){
 		
@@ -54,7 +63,7 @@ public class TransferLogAdvice {
 	 * 后置异常通知：在方法抛出异常之后执行,可以访问到异常信息,且可以指定出现特定异常信息时执行代码
 	 * @param joinPoint
 	 */
-	@AfterThrowing(value="execution(* com.bytebeats.spring4.aop.annotation.service.BankServiceImpl.*(..))",
+	@AfterThrowing(value = "pointcut1()",
 			throwing="exception")
 	public void afterThrowing(JoinPoint joinPoint, Exception /**NullPointerException*/ exception){
 		
@@ -65,7 +74,7 @@ public class TransferLogAdvice {
 	/**
 	 * 环绕通知, 围绕着方法执行
 	 */
-	@Around("execution(* com.bytebeats.spring4.aop.annotation.service.BankServiceImpl.*(..))")
+	@Around(value = "pointcut1()")
 	public Object around(ProceedingJoinPoint joinPoint){
 		
 		String methodName = joinPoint.getSignature().getName();
