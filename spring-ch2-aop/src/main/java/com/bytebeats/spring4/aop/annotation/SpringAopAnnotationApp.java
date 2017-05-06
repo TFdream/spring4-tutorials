@@ -14,7 +14,7 @@ public class SpringAopAnnotationApp {
 		bankService.transfer("jordan", "kobe", 2000);
 
 		System.out.println("*********************");
-		bankService.transfer("jordan", "kobe", 0);
+		bankService.transfer("jordan", "kobe", 100);
 
 		ctx.close();
 	}

@@ -6,7 +6,7 @@ public class SpringIocMain {
 
 	public static void main(String[] args) {
 
-		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-ioc.xml");
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring-ioc.xml");
 		
 		//2. 从 IOC 容器中获取 bean 的实例
 		UserDAO userDAO = (UserDAO) ctx.getBean("userDAO");
