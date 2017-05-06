@@ -18,6 +18,7 @@
 		<module>spring-ch5-rw</module>
 		<module>spring-ch6-transaction</module>
 		<module>spring-inner-research</module>
+		<module>spring-ch8-profile</module>
 	</modules>
 
 	<properties>
