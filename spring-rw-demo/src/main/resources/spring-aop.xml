@@ -10,11 +10,11 @@
 	<!-- 配置AOP -->
 	<aop:aspectj-autoproxy />
 
-	<bean id="readWriteSeparateAspect" class="com.bytebeats.spring4.sample.aop.DBReadWriteSeparateAspect" />
+	<bean id="readWriteSeparateAspect" class="orange.spring4.sample.aop.DBReadWriteSeparateAspect" />
 
 	<aop:config>
 		<aop:aspect ref="readWriteSeparateAspect">
-			<aop:pointcut id="rw" expression="execution(* com.bytebeats.spring4.sample.dao.*.*(..))" />
+			<aop:pointcut id="rw" expression="execution(* orange.spring4.sample.dao.*.*(..))" />
 			<aop:before pointcut-ref="rw" method="before" />
 		</aop:aspect>
 	</aop:config>

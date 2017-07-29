@@ -6,9 +6,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="com.bytebeats.spring4.lifecycle"/>
+    <context:component-scan base-package="orange.spring4.lifecycle"/>
 
-    <bean id="exampleBean" class="com.bytebeats.spring4.lifecycle.ExampleBean" init-method="initMethod"
+    <bean id="exampleBean" class="orange.spring4.lifecycle.ExampleBean" init-method="initMethod"
           destroy-method="destroyMethod" scope="singleton"/>
 
 </beans>

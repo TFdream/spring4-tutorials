@@ -7,9 +7,9 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-    <bean id="userDao" class="com.bytebeats.spring.research.dao.UserDao" />
+    <bean id="userDao" class="orange.spring.research.dao.UserDao" />
 
-    <bean id="userService" class="com.bytebeats.spring.research.service.impl.UserServiceImpl">
+    <bean id="userService" class="orange.spring.research.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao" />
     </bean>
 

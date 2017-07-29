@@ -1,1 +1,1 @@
-http\://code.mindflow.com/schema/rpc=com.bytebeats.spring4.extension.xml.RpcNamespaceHandler
+http\://code.mindflow.com/schema/rpc=orange.spring4.extension.xml.RpcNamespaceHandler

@@ -58,9 +58,9 @@
 	</bean>
 
 	<!--动态数据源-->
-	<bean id="dataSource" class="com.bytebeats.spring4.sample.ds.DynamicRoutingDataSource">
+	<bean id="dataSource" class="orange.spring4.sample.ds.DynamicRoutingDataSource">
 		<property name="targetDataSources">
-			<map key-type="com.bytebeats.spring4.sample.ds.RoutingStrategy">
+			<map key-type="orange.spring4.sample.ds.RoutingStrategy">
 				<entry key="WRITE" value-ref="masterDataSource"/>
 				<entry key="READ" value-ref="slaveDataSource"/>
 			</map>
