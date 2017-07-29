@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-inner-research</artifactId>
+    <artifactId>spring-lifecycle-demo</artifactId>
     <packaging>jar</packaging>
 
-    <name>spring-inner-research</name>
+    <name>spring-lifecycle-demo</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -24,12 +24,13 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
+            <artifactId>spring-context</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <artifactId>spring-beans</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>

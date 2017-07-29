@@ -2,23 +2,23 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.bytebeats</groupId>
-	<artifactId>spring4-in-action</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<groupId>com.mindflow</groupId>
+	<artifactId>spring4-tutorials</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>spring4-in-action</name>
+	<name>spring4-tutorials</name>
 	<url>http://maven.apache.org</url>
 
 	<modules>
-		<module>spring-ch1-ioc</module>
-		<module>spring-ch2-aop</module>
-		<module>spring-ch3-extensible</module>
-		<module>spring-ch4-lifecycle</module>
-		<module>spring-ch5-rw</module>
-		<module>spring-ch6-transaction</module>
+		<module>spring-ioc-demo</module>
+		<module>spring-aop-demo</module>
+		<module>spring-extensible-demo</module>
+		<module>spring-lifecycle-demo</module>
+		<module>spring-rw-demo</module>
+		<module>spring-transaction-demo</module>
 		<module>spring-inner-research</module>
-		<module>spring-ch8-profile</module>
+		<module>spring-profile-demo</module>
 	</modules>
 
 	<properties>
@@ -90,12 +90,12 @@
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
-				<version>5.1.26</version>
+				<version>5.1.39</version>
 			</dependency>
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid</artifactId>
-				<version>1.0.21</version>
+				<version>1.0.28</version>
 			</dependency>
 
 
