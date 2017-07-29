@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-	<contextName>spring4-ch3-extension</contextName>
+	<contextName>spring4-extension-demo</contextName>
 
 	<!-- 日志文件存储路径 -->
 	<property name="LOG_HOME" value="D:/logs" />
@@ -14,7 +14,7 @@
 	</appender>
 
 	<appender name="Info" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOG_HOME}/info/spring4-ch3-extension-info.log</file>
+		<file>${LOG_HOME}/info/spring4-extension-info.log</file>
 		<append>true</append>
 		<charset>UTF-8</charset>
 
@@ -24,7 +24,7 @@
 
 		<!-- 每小时生成日志文件 -->
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOG_HOME}/info/spring4-ch3-extension.%d{yyyy-MM-dd-HH}-info.log.gz
+			<fileNamePattern>${LOG_HOME}/info/spring4-extension.%d{yyyy-MM-dd-HH}-info.log.gz
 			</fileNamePattern>
 			<!-- 日志文件保留15天 -->
 			<maxHistory>360</maxHistory>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns="http://www.bytebeats.com/schema/rpc"
+<xsd:schema xmlns="http://code.mindflow.com/schema/rpc"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns:beans="http://www.springframework.org/schema/beans"
-            targetNamespace="http://www.bytebeats.com/schema/rpc"
+            targetNamespace="http://code.mindflow.com/schema/rpc"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">
 

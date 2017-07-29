@@ -1,6 +1,7 @@
 package com.bytebeats.spring4.ioc.dao;
 
 import com.bytebeats.spring4.ioc.domain.Employee;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class EmployeeDaoTest {
     private IEmployeeDao employeeDao;
 
     @Test
+    @Ignore
     public void testDao() {
 
         int result = employeeDao.insert(new Employee(1, "ricky", 27));
